@@ -62,9 +62,11 @@ public class Portal extends JavaPlugin {
 
         this.priorityProvider = new DefaultPriorityProvider();
 
-        JsonObject object = Portal.getInstance().getPortalServer().getServerData();
-        object.addProperty("action", JedisAction.ADD_SERVER.name());
-        Portal.getInstance().getIndependentPublisher().write(object);
+        Bukkit.getScheduler().runTaskLaterAsynchronously(this, () -> {
+            JsonObject object = Portal.getInstance().getPortalServer().getServerData();
+            object.addProperty("action", JedisAction.ADD_SERVER.name());
+            Portal.getInstance().getIndependentPublisher().write(object);
+        }, 100L);
 
         // Start threads
         new UpdateThread().start();
