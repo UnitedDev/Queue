@@ -52,7 +52,7 @@ public class Portal extends JavaPlugin {
         this.jedisConfig = new JedisConfig(this);
 
         this.portalServer = new Server(
-                BukkitAPI.getFactory(Bukkit.getPort()).getName(),
+                (BukkitAPI.getFactory(Bukkit.getPort()).getName().contains("Lobby") ? "Lobby-" : "UHC-") + Bukkit.getPort(),
                 BukkitAPI.getFactory(Bukkit.getPort()).getName().contains("Lobby")
         );
 

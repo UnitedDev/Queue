@@ -175,7 +175,25 @@ public class PortalSubscriptionHandler implements JedisSubscriptionHandler<JsonO
                 if (json.get("hub").getAsBoolean()) {
                    Portal.getInstance().getConfig().getHubs().add(json.get("name").getAsString());
                 } else {
-                    Queue.getQueues().add(new Queue(json.get("name").getAsString()));
+                    String name = json.get("name").getAsString();
+                    ServerData serverData = new ServerData(name);
+                    Logger.print("Initiated server data `" + name + "`");
+
+                    serverData.setOnlinePlayers(json.get("online-players").getAsInt());
+                    serverData.setMaximumPlayers(json.get("maximum-players").getAsInt());
+                    serverData.setWhitelisted(json.get("whitelisted").getAsBoolean());
+                    serverData.setLastUpdate(System.currentTimeMillis());
+
+                    List<UUID> ids = new ArrayList<>();
+
+                    for (JsonElement s : json.getAsJsonArray("wlplayers")) {
+                        UUID uuid = UUID.fromString(s.getAsString());
+                        ids.add(uuid);
+                    }
+                    serverData.setWhitelistedPlayers(ids);
+                    Queue queue = new Queue(json.get("name").getAsString());
+                    queue.setEnabled(true);
+                    Queue.getQueues().add(queue);
                 }
             }
             break;
@@ -184,6 +202,7 @@ public class PortalSubscriptionHandler implements JedisSubscriptionHandler<JsonO
                     Portal.getInstance().getConfig().getHubs().remove(json.get("name").getAsString());
                 } else {
                     Queue.getQueues().remove(new Queue(json.get("name").getAsString()));
+                    ServerData.getServers().remove(ServerData.getByName(json.get("name").getAsString()));
                 }
             }
             break;
