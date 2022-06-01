@@ -16,7 +16,7 @@ public class JedisConfig extends Config {
 		// If the file was just created, save a default config
 		if (this.wasCreated) {
 			this.getConfig().set("jedis.host", "127.0.0.1");
-			this.getConfig().set("jedis.port", 6937);
+			this.getConfig().set("jedis.port", 6379);
 			this.getConfig().set("jedis.password", null);
 			this.save();
 		}

@@ -2,7 +2,7 @@ main: fr.kohei.queue.bukkit.Portal
 name: Queue
 version: ${project.version}
 description: ${project.description}
-depend: [Astria]
+depend: [BukkitAPI]
 commands:
   joinqueue:
     description: Join a queue
