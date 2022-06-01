@@ -1,0 +1,18 @@
+main: fr.kohei.queue.bukkit.Portal
+name: Queue
+version: ${project.version}
+description: ${project.description}
+depend: [Astria]
+commands:
+  joinqueue:
+    description: Join a queue
+  leavequeue:
+    description: Leave a queue
+  forcesend:
+    description: Send a player to a server
+  datadump:
+    description: Dump data
+  queuetoggle:
+    description: Toggle a queue
+  queueclear:
+    description: Clear a queue

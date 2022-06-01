@@ -1,0 +1,8 @@
+language:
+  reminder:
+    - "&eYou are position &d#{position} &eof &d{total} &ein the &a{queue} &equeue."
+    - "&7Purchase a rank at www.server.net to get a higher queue priority."
+  added:
+    - "&aYou have joined the {queue} queue."
+  removed:
+    - "&cYou have been removed from the {queue} queue."
