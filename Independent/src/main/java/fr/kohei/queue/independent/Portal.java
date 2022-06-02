@@ -1,19 +1,19 @@
 package fr.kohei.queue.independent;
 
-import fr.kohei.common.api.CommonAPI;
-import fr.kohei.common.cache.server.impl.LobbyServer;
-import fr.kohei.common.cache.server.impl.UHCServer;
-import fr.kohei.queue.independent.log.Logger;
-import fr.kohei.queue.shared.util.redis.JedisPublisher;
-import fr.kohei.queue.shared.util.redis.JedisSettings;
-import fr.kohei.queue.shared.util.redis.JedisSubscriber;
 import com.google.gson.JsonObject;
+import fr.kohei.common.api.CommonAPI;
+import fr.kohei.common.cache.server.LobbyServer;
+import fr.kohei.common.cache.server.UHCServer;
 import fr.kohei.queue.independent.file.Config;
 import fr.kohei.queue.independent.jedis.PortalSubscriptionHandler;
+import fr.kohei.queue.independent.log.Logger;
 import fr.kohei.queue.independent.thread.BroadcastThread;
 import fr.kohei.queue.independent.thread.QueueThread;
 import fr.kohei.queue.shared.jedis.JedisChannel;
 import fr.kohei.queue.shared.queue.Queue;
+import fr.kohei.queue.shared.util.redis.JedisPublisher;
+import fr.kohei.queue.shared.util.redis.JedisSettings;
+import fr.kohei.queue.shared.util.redis.JedisSubscriber;
 import lombok.Getter;
 
 
@@ -47,8 +47,8 @@ public class Portal {
         this.settings = config.getJedisSettings();
 
         // Instantiate jedis pubsub
-        this.subscriber = new JedisSubscriber(settings, JedisChannel.INDEPENDENT, JsonObject.class, new PortalSubscriptionHandler());
-        this.bukkitPublisher = new JedisPublisher(settings, JedisChannel.BUKKIT);
+        this.subscriber = new JedisSubscriber<>(settings, JedisChannel.INDEPENDENT, JsonObject.class, new PortalSubscriptionHandler());
+        this.bukkitPublisher = new JedisPublisher<>(settings, JedisChannel.BUKKIT);
 
         // Start threads
         new QueueThread().start();

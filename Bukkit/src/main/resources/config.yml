@@ -1,8 +1,6 @@
 language:
-  reminder:
-    - "&eYou are position &d#{position} &eof &d{total} &ein the &a{queue} &equeue."
-    - "&7Purchase a rank at www.server.net to get a higher queue priority."
+  reminder: "&fFile d'attente: &c{queue} &8┃ &fPosition &c{position}&7/&c{total} &8┃ &fQuitter: &c/leavequeue"
   added:
-    - "&aYou have joined the {queue} queue."
+    - "&fVous avez rejoint la file d'attente du serveur &a{queue}&f."
   removed:
-    - "&cYou have been removed from the {queue} queue."
+    - "&fVous avez quitté la file d'attente du serveur &c{queue}&f."

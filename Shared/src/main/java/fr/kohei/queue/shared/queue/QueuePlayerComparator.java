@@ -6,7 +6,7 @@ public class QueuePlayerComparator implements Comparator<QueuePlayer> {
 
     @Override
     public int compare(QueuePlayer firstPlayer, QueuePlayer secondPlayer) {
-        return firstPlayer.compareTo(secondPlayer);
+        return -firstPlayer.compareTo(secondPlayer);
     }
 
 }

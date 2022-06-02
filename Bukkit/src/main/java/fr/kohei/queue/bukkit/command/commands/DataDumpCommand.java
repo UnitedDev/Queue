@@ -59,7 +59,7 @@ public class DataDumpCommand extends BaseCommand {
             } else {
                 builder
                         .append(" (")
-                        .append(serverData.isOnline())
+                        .append(serverData.isOnline() ? "&aen ligne" : "&chors ligne")
                         .append(") (")
                         .append(serverData.isWhitelisted())
                         .append(") (")

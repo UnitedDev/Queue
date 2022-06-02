@@ -53,7 +53,7 @@ public class Language {
         List<String> translated = new ArrayList<>();
 
         for (String line : this.added) {
-            translated.add(ChatUtil.translate(line
+            translated.add(ChatUtil.prefix(line
                     .replace("{position}", queue.getPosition(player.getUniqueId()) + "")
                     .replace("{total}", queue.getPlayers().size() + "")
                     .replace("{queue}", queue.getName()))
@@ -67,7 +67,7 @@ public class Language {
         List<String> translated = new ArrayList<>();
 
         for (String line : this.removed) {
-            translated.add(ChatUtil.translate(line
+            translated.add(ChatUtil.prefix(line
                     .replace("{queue}", queue.getName()))
             );
         }

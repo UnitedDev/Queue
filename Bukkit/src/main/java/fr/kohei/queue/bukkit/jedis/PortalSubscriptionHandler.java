@@ -13,6 +13,7 @@ import fr.kohei.queue.shared.queue.QueuePlayerComparator;
 import fr.kohei.queue.shared.queue.QueueRank;
 import fr.kohei.queue.shared.server.ServerData;
 import fr.kohei.queue.shared.util.redis.subscription.JedisSubscriptionHandler;
+import fr.kohei.utils.ChatUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -156,7 +157,7 @@ public class PortalSubscriptionHandler implements JedisSubscriptionHandler<JsonO
                     return;
                 }
 
-                player.sendMessage(ChatColor.GREEN + "Sending you to " + server);
+                player.sendMessage(ChatUtil.prefix("&fRedirection vers le serveur &c" + server));
 
                 BungeeUtil.sendToServer(player,
                         BukkitAPI.getFactory(Integer.parseInt(server.split("-")[1])).getName());

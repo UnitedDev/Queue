@@ -5,6 +5,7 @@ import fr.kohei.queue.bukkit.Portal;
 import fr.kohei.queue.bukkit.command.BaseCommand;
 import fr.kohei.queue.shared.jedis.JedisAction;
 import fr.kohei.queue.shared.queue.Queue;
+import fr.kohei.utils.ChatUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -29,7 +30,7 @@ public class LeaveQueueCommand extends BaseCommand {
         Queue queue = Queue.getByPlayer(player.getUniqueId());
 
         if (queue == null) {
-            player.sendMessage(ChatColor.RED + "You are not in a queue.");
+            player.sendMessage(ChatUtil.prefix("&cVous n'êtes dans aucune file d'attente."));
             return true;
         }
 
