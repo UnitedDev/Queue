@@ -7,8 +7,8 @@ import fr.kohei.queue.bukkit.command.BaseCommand;
 import fr.kohei.queue.shared.jedis.JedisAction;
 import fr.kohei.queue.shared.queue.Queue;
 import fr.kohei.queue.shared.queue.QueueRank;
+import fr.kohei.utils.ChatUtil;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -28,7 +28,7 @@ public class JoinQueueCommand extends BaseCommand {
         }
 
         if (args.length == 0) {
-            commandSender.sendMessage(ChatColor.RED + "Usage: /joinqueue <server>");
+            commandSender.sendMessage(ChatUtil.prefix("&cMerci d'utiliser &c/joinqueue <server>"));
             return true;
         }
 
@@ -37,19 +37,19 @@ public class JoinQueueCommand extends BaseCommand {
         Queue queue = Queue.getByPlayer(bukkitPlayer.getUniqueId());
 
         if (queue != null) {
-            bukkitPlayer.sendMessage(ChatColor.RED + "You are already in a queue.");
+            bukkitPlayer.sendMessage(ChatUtil.prefix("&cVous êtes déjà dans une file d'attente."));
             return true;
         }
 
         queue = Queue.getByName(args[0]);
 
         if (queue == null) {
-            bukkitPlayer.sendMessage(ChatColor.RED + "That queue does not exist or is offline.");
+            bukkitPlayer.sendMessage(ChatUtil.prefix("&cCette file d'attente n'existe pas."));
             return true;
         }
 
         if (queue.getServerData() == null || !queue.getServerData().isOnline()) {
-            bukkitPlayer.sendMessage(ChatColor.RED + "That queue is offline.");
+            bukkitPlayer.sendMessage(ChatUtil.prefix("&cCe serveur est hors-ligne."));
             return true;
         }
 

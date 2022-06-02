@@ -2,7 +2,8 @@ package fr.kohei.queue.bukkit.thread;
 
 import fr.kohei.queue.bukkit.Portal;
 import fr.kohei.queue.shared.queue.Queue;
-import org.bukkit.ChatColor;
+import fr.kohei.utils.ChatUtil;
+import fr.kohei.utils.Title;
 import org.bukkit.entity.Player;
 
 public class ReminderThread extends Thread {
@@ -15,7 +16,7 @@ public class ReminderThread extends Thread {
 
                 if (queue != null) {
                     for (String message : Portal.getInstance().getLanguage().getReminder(player, queue)) {
-                        player.sendMessage(ChatColor.translateAlternateColorCodes('&', message));
+                        Title.sendActionBar(player, ChatUtil.translate(message));
                     }
                 }
             }
