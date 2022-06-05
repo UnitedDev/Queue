@@ -32,7 +32,7 @@
         <dependency>
             <groupId>fr.kohei</groupId>
             <artifactId>bukkitapi</artifactId>
-            <version>1.1.8</version>
+            <version>1.1.9</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -50,7 +50,7 @@
     </dependencies>
 
     <build>
-        <finalName>Queue</finalName>
+        <finalName>queue</finalName>
     </build>
 
 </project>

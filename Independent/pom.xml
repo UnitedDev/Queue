@@ -10,7 +10,7 @@
         <version>1.0.1</version>
     </parent>
 
-    <artifactId>Queue-Independent</artifactId>
+    <artifactId>queue-independent</artifactId>
 
     <repositories>
         <repository>

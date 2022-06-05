@@ -25,7 +25,7 @@ public class Server {
         object.addProperty("online-players", Portal.getInstance().getServer().getOnlinePlayers().size());
         object.addProperty("maximum-players", Portal.getInstance().getServer().getMaxPlayers());
 
-        object.addProperty("whitelisted", !hub && BukkitAPI.getCommonAPI().getServerCache().getUhcServers().get(Bukkit.getPort()).isWhilelisted());
+        object.addProperty("whitelisted", !hub && BukkitAPI.getCommonAPI().getServerCache().getUhcServers().get(Bukkit.getPort()).isWhitelisted());
 
         JsonArray array = new JsonArray();
 
