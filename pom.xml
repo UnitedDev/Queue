@@ -3,10 +3,11 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <groupId>fr.kohei</groupId>
     <artifactId>queue</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
 
     <modules>
         <module>Shared</module>
@@ -72,4 +73,19 @@
             </plugin>
         </plugins>
     </build>
+    <repositories>
+        <repository>
+            <id>kohei</id>
+            <url>https://maven.pkg.github.com/KoheiDev/BukkitAPI</url>
+        </repository>
+    </repositories>
+    <distributionManagement>
+        <repository>
+            <id>kohei</id>
+            <name>queue</name>
+            <url>https://maven.pkg.github.com/KoheiDev/Queue/</url>
+        </repository>
+    </distributionManagement>
+
+
 </project>

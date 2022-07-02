@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>Queue</artifactId>
+        <artifactId>queue</artifactId>
         <groupId>fr.kohei</groupId>
-        <version>1.0.1</version>
+        <version>1.0.3</version>
     </parent>
 
-    <artifactId>Queue-Bukkit</artifactId>
+    <artifactId>queue-bukkit</artifactId>
 
     <repositories>
         <repository>
@@ -26,13 +26,13 @@
     <dependencies>
         <dependency>
             <groupId>fr.kohei</groupId>
-            <artifactId>Queue-Shared</artifactId>
-            <version>1.0</version>
+            <artifactId>queue-shared</artifactId>
+            <version>1.0.3</version>
         </dependency>
         <dependency>
             <groupId>fr.kohei</groupId>
             <artifactId>bukkitapi</artifactId>
-            <version>1.1.9</version>
+            <version>1.3.1-alpha2</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -50,7 +50,7 @@
     </dependencies>
 
     <build>
-        <finalName>queue</finalName>
+        <finalName>Queue</finalName>
     </build>
 
 </project>

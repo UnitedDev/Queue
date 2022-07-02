@@ -1,7 +1,7 @@
 package fr.kohei.queue.bukkit.priority.impl;
 
 import fr.kohei.BukkitAPI;
-import fr.kohei.common.cache.Rank;
+import fr.kohei.common.cache.rank.Rank;
 import fr.kohei.queue.bukkit.Portal;
 import fr.kohei.queue.bukkit.util.MapUtil;
 import fr.kohei.queue.bukkit.priority.PriorityProvider;

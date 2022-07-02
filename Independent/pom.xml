@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>Queue</artifactId>
+        <artifactId>queue</artifactId>
         <groupId>fr.kohei</groupId>
-        <version>1.0.1</version>
+        <version>1.0.3</version>
     </parent>
 
     <artifactId>queue-independent</artifactId>
@@ -22,13 +22,13 @@
     <dependencies>
         <dependency>
             <groupId>fr.kohei</groupId>
-            <artifactId>Queue-Shared</artifactId>
-            <version>1.0</version>
+            <artifactId>queue-shared</artifactId>
+            <version>1.0.3</version>
         </dependency>
         <dependency>
             <groupId>fr.kohei</groupId>
             <artifactId>common</artifactId>
-            <version>1.4.1</version>
+            <version>2.1.0-alpha7</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>

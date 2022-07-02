@@ -2,8 +2,8 @@ package fr.kohei.queue.independent;
 
 import com.google.gson.JsonObject;
 import fr.kohei.common.api.CommonAPI;
-import fr.kohei.common.cache.server.LobbyServer;
-import fr.kohei.common.cache.server.UHCServer;
+import fr.kohei.common.cache.server.impl.LobbyServer;
+import fr.kohei.common.cache.server.impl.UHCServer;
 import fr.kohei.queue.independent.file.Config;
 import fr.kohei.queue.independent.jedis.PortalSubscriptionHandler;
 import fr.kohei.queue.independent.log.Logger;
