@@ -158,7 +158,6 @@ public class PortalSubscriptionHandler implements JedisSubscriptionHandler<JsonO
                 }
 
                 player.sendMessage(ChatUtil.prefix("&fRedirection vers le serveur &c" + server));
-
                 BungeeUtil.sendToServer(player,
                         BukkitAPI.getFactory(Integer.parseInt(server.split("-")[1])).getName());
             }

@@ -53,7 +53,7 @@ public class JoinQueueCommand extends BaseCommand {
             return true;
         }
 
-        if (BukkitAPI.getCommonAPI().getProfile(bukkitPlayer.getUniqueId()).getRank().getPermissionPower() > 100) {
+        if (BukkitAPI.getCommonAPI().getProfile(bukkitPlayer.getUniqueId()).getRank().getPermissionPower() > 50) {
             JsonObject data = new JsonObject();
             data.addProperty("action", JedisAction.SEND_PLAYER_SERVER.name());
             data.addProperty("uuid", bukkitPlayer.getUniqueId().toString());

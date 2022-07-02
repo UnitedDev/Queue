@@ -21,7 +21,7 @@ public class ForceSendCommand extends BaseCommand {
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] args) {
         if (commandSender instanceof Player) {
             Player player = (Player) commandSender;
-            if (!(BukkitAPI.getCommonAPI().getProfile(player.getUniqueId()).getRank().getPermissionPower() > 100) && !commandSender.isOp()) {
+            if (!(BukkitAPI.getCommonAPI().getProfile(player.getUniqueId()).getRank().getPermissionPower() > 50) && !commandSender.isOp()) {
                 return true;
             }
         }
