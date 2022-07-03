@@ -4,20 +4,16 @@ import com.google.gson.JsonObject;
 import fr.kohei.queue.bukkit.Portal;
 import fr.kohei.queue.shared.jedis.JedisAction;
 
-public class UpdateThread extends Thread {
+public class UpdateThread implements Runnable {
 
     @Override
     public void run() {
-        while (true) {
+        try {
             JsonObject object = Portal.getInstance().getPortalServer().getServerData();
             object.addProperty("action", JedisAction.UPDATE.name());
             Portal.getInstance().getIndependentPublisher().write(object);
-
-            try {
-                Thread.sleep(2500L);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

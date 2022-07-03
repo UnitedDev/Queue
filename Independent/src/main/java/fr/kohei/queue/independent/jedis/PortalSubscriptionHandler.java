@@ -1,5 +1,6 @@
 package fr.kohei.queue.independent.jedis;
 
+import fr.kohei.common.CommonProvider;
 import fr.kohei.common.api.CommonAPI;
 import fr.kohei.queue.independent.Portal;
 import fr.kohei.queue.independent.log.Logger;
@@ -165,7 +166,7 @@ public class PortalSubscriptionHandler implements JedisSubscriptionHandler<JsonO
                     responseData.addProperty("action", JedisAction.SEND_PLAYER_SERVER.name());
                     responseData.addProperty("uuid", uuid);
                     responseData.addProperty("server", "Lobby-" +
-                            Portal.getInstance().getApi().getServerCache().findBestLobbyFor(UUID.fromString(uuid)).getPort());
+                            CommonProvider.getInstance().getServerCache().findBestLobbyFor(UUID.fromString(uuid)).getPort());
 
                     Portal.getInstance().getBukkitPublisher().write(responseData);
 

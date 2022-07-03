@@ -22,6 +22,8 @@ import lombok.Setter;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.concurrent.Executors;
+
 @Getter
 public class Portal extends JavaPlugin {
 
@@ -69,7 +71,7 @@ public class Portal extends JavaPlugin {
         }, 100L);
 
         // Start threads
-        new UpdateThread().start();
+        Executors.newSingleThreadScheduledExecutor().scheduleAtFixedRate(new UpdateThread(), 10L, 1L, java.util.concurrent.TimeUnit.SECONDS);
         new ReminderThread().start();
 
         // Register commands

@@ -3,6 +3,7 @@ package fr.kohei.queue.bukkit.server;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import fr.kohei.BukkitAPI;
+import fr.kohei.common.CommonProvider;
 import fr.kohei.queue.bukkit.Portal;
 import com.google.gson.JsonPrimitive;
 import lombok.AllArgsConstructor;
@@ -25,13 +26,12 @@ public class Server {
         object.addProperty("online-players", Portal.getInstance().getServer().getOnlinePlayers().size());
         object.addProperty("maximum-players", Portal.getInstance().getServer().getMaxPlayers());
 
-        object.addProperty("whitelisted", !hub && BukkitAPI.getCommonAPI().getServerCache().getUhcServers().get(Bukkit.getPort()).isWhitelisted());
-
+        object.addProperty("whitelisted", !hub && CommonProvider.getInstance().getServerCache().getUhcServers().get(Bukkit.getPort()).isWhitelisted());
         JsonArray array = new JsonArray();
 
 
         if (!hub) {
-            for (UUID uuid : BukkitAPI.getCommonAPI().getServerCache().getUhcServers().get(Bukkit.getPort()).getWhitelistedPlayers()) {
+            for (UUID uuid : CommonProvider.getInstance().getServerCache().getUhcServers().get(Bukkit.getPort()).getWhitelistedPlayers()) {
                 array.add(new JsonPrimitive(uuid.toString()));
             }
         }

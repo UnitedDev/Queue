@@ -1,6 +1,7 @@
 package fr.kohei.queue.independent;
 
 import com.google.gson.JsonObject;
+import fr.kohei.common.CommonProvider;
 import fr.kohei.common.api.CommonAPI;
 import fr.kohei.common.cache.server.impl.LobbyServer;
 import fr.kohei.common.cache.server.impl.UHCServer;
@@ -24,7 +25,6 @@ public class Portal {
     private static Portal instance;
 
     private final Config config;
-    private final CommonAPI api;
 
     private final JedisSettings settings;
     private final JedisSubscriber subscriber;
@@ -32,14 +32,14 @@ public class Portal {
     private final JedisPublisher bukkitPublisher;
 
     private Portal() {
-        this.api = CommonAPI.create();
+        CommonAPI.create();
         this.config = new Config("127.0.0.1", 6379, null);
 
-        for (UHCServer uhcServer : api.getServerCache().getUhcServers().values()) {
+        for (UHCServer uhcServer : CommonProvider.getInstance().getServerCache().getUhcServers().values()) {
             Queue.getQueues().add(new Queue("UHC-" + uhcServer.getPort()));
         }
 
-        for (LobbyServer lobbyServer : api.getServerCache().getLobbyServers().values()) {
+        for (LobbyServer lobbyServer : CommonProvider.getInstance().getServerCache().getLobbyServers().values()) {
             config.getHubs().add("Lobby-" + lobbyServer.getPort());
         }
 

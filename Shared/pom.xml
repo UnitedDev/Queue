@@ -15,7 +15,7 @@
     <parent>
         <artifactId>queue</artifactId>
         <groupId>fr.kohei</groupId>
-        <version>1.0.3</version>
+        <version>1.0.4</version>
     </parent>
 
     <artifactId>queue-shared</artifactId>
