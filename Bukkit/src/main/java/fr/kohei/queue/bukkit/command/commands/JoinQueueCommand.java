@@ -48,7 +48,7 @@ public class JoinQueueCommand extends BaseCommand {
             return true;
         }
 
-        if (queue.getServerData() == null || !queue.getServerData().isOnline()) {
+        if (queue.getServerData() == null) {
             bukkitPlayer.sendMessage(ChatUtil.prefix("&cCe serveur est hors-ligne."));
             return true;
         }

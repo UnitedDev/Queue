@@ -18,16 +18,13 @@ public class ServerData {
     private int onlinePlayers;
     private int maximumPlayers;
     private boolean whitelisted;
-    private long lastUpdate;
+    private long startedAt;
     private List<UUID> whitelistedPlayers;
 
     public ServerData(String name) {
         this.name = name;
+        this.startedAt = System.currentTimeMillis();
         servers.add(this);
-    }
-
-    public boolean isOnline() {
-        return System.currentTimeMillis() - this.lastUpdate < 15000L;
     }
 
     public static ServerData getByName(String name) {

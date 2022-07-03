@@ -1,5 +1,6 @@
 package fr.kohei.queue.independent.thread;
 
+import fr.kohei.common.CommonProvider;
 import fr.kohei.queue.independent.Portal;
 import com.google.gson.JsonObject;
 import fr.kohei.queue.shared.queue.Queue;
@@ -25,7 +26,13 @@ public class QueueThread extends Thread {
                     continue;
                 }
 
-                if (!serverData.isOnline()) {
+                if (CommonProvider.getInstance().getServerCache().getUhcServers().get(Integer.parseInt(queue.getName().replace("UHC-", ""))) == null) {
+                    Queue.getQueues().remove(queue);
+                    JsonObject object = new JsonObject();
+                    object.addProperty("action", JedisAction.REMOVE_SERVER.name());
+                    object.addProperty("name", queue.getName());
+                    object.addProperty("hub", false);
+                    Portal.getInstance().getIndependentPublisher().write(object);
                     continue;
                 }
                 QueuePlayer next = queue.getPlayers().peek();

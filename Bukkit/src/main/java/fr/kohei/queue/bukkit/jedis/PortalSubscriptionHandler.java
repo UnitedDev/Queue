@@ -47,7 +47,6 @@ public class PortalSubscriptionHandler implements JedisSubscriptionHandler<JsonO
                     serverData.setOnlinePlayers(serverJson.get("online-players").getAsInt());
                     serverData.setMaximumPlayers(serverJson.get("maximum-players").getAsInt());
                     serverData.setWhitelisted(serverJson.get("whitelisted").getAsBoolean());
-                    serverData.setLastUpdate(System.currentTimeMillis());
 
                     JsonArray array = serverJson.get("wlplayers").getAsJsonArray();
                     List<UUID> ids = new ArrayList<>();

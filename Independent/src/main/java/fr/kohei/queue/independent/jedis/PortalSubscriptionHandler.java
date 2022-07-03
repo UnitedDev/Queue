@@ -1,7 +1,6 @@
 package fr.kohei.queue.independent.jedis;
 
 import fr.kohei.common.CommonProvider;
-import fr.kohei.common.api.CommonAPI;
 import fr.kohei.queue.independent.Portal;
 import fr.kohei.queue.independent.log.Logger;
 import fr.kohei.queue.shared.util.redis.subscription.JedisSubscriptionHandler;
@@ -49,7 +48,6 @@ public class PortalSubscriptionHandler implements JedisSubscriptionHandler<JsonO
                 serverData.setOnlinePlayers(json.get("online-players").getAsInt());
                 serverData.setMaximumPlayers(json.get("maximum-players").getAsInt());
                 serverData.setWhitelisted(json.get("whitelisted").getAsBoolean());
-                serverData.setLastUpdate(System.currentTimeMillis());
 
                 List<UUID> ids = new ArrayList<>();
 
@@ -183,7 +181,7 @@ public class PortalSubscriptionHandler implements JedisSubscriptionHandler<JsonO
                     serverData.setOnlinePlayers(json.get("online-players").getAsInt());
                     serverData.setMaximumPlayers(json.get("maximum-players").getAsInt());
                     serverData.setWhitelisted(json.get("whitelisted").getAsBoolean());
-                    serverData.setLastUpdate(System.currentTimeMillis());
+                    serverData.setStartedAt(System.currentTimeMillis());
 
                     List<UUID> ids = new ArrayList<>();
 

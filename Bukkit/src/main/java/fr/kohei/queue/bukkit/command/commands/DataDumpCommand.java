@@ -33,8 +33,6 @@ public class DataDumpCommand extends BaseCommand {
             StringBuilder builder = new StringBuilder("- ")
                     .append(serverData.getName())
                     .append(" (")
-                    .append(serverData.isOnline())
-                    .append(") (")
                     .append(serverData.getOnlinePlayers())
                     .append("/")
                     .append(serverData.getMaximumPlayers())
@@ -60,8 +58,6 @@ public class DataDumpCommand extends BaseCommand {
             } else {
                 builder
                         .append(" (")
-                        .append(serverData.isOnline() ? "&aen ligne" : "&chors ligne")
-                        .append(") (")
                         .append(serverData.isWhitelisted())
                         .append(") (")
                         .append(queue.isEnabled())

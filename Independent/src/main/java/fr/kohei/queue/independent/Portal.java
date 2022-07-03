@@ -30,6 +30,7 @@ public class Portal {
     private final JedisSubscriber subscriber;
 
     private final JedisPublisher bukkitPublisher;
+    private final JedisPublisher independentPublisher;
 
     private Portal() {
         CommonAPI.create();
@@ -49,6 +50,7 @@ public class Portal {
         // Instantiate jedis pubsub
         this.subscriber = new JedisSubscriber<>(settings, JedisChannel.INDEPENDENT, JsonObject.class, new PortalSubscriptionHandler());
         this.bukkitPublisher = new JedisPublisher<>(settings, JedisChannel.BUKKIT);
+        this.independentPublisher = new JedisPublisher<>(settings, JedisChannel.INDEPENDENT);
 
         // Start threads
         new QueueThread().start();
