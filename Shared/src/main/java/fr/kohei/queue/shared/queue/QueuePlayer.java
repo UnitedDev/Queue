@@ -26,7 +26,7 @@ public class QueuePlayer implements Comparable {
             result = this.rank.getPriority() - otherPlayer.getRank().getPriority();
 
             if (result == 0) {
-                if (this.inserted < otherPlayer.getInserted()) {
+                if (this.inserted > otherPlayer.getInserted()) {
                     return -1;
                 } else {
                     return 1;
